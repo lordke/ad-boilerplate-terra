@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  app_server_n:
+    image: app-server:latest
+    environment:
+      - SERVICE_8080_NAME=app-server-http-service
+      - SERVICE_8080_TAGS=app-server-http-service-n
+      - SERVICE_8080_CHECK_INTERVAL=10s
+      - SERVICE_8080_CHECK_TIMEOUT=2s
+      - SERVICE_8080_CHECK_HTTP=/health_check
+    ports:
+      - "18000:8080"
